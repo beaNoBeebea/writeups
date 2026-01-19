@@ -3,7 +3,6 @@
 **Category:** [[Misc]]    
 **Flag:** `uoftctf{tr41n_h4rd_w1n_345y_a625e2acd5ed}`
 
-
 ## I. Challenge Overview
 
 > Welcome to the K&K Training Room. Before every match, players must check in through the bot.
@@ -216,3 +215,6 @@ client.on(Events.InteractionCreate, async (interaction) => { 
 	// ... rest of role assignment logic
 }); 
 ```
+
+
+[[UOFTCTF2026]]

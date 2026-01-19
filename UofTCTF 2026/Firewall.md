@@ -1,6 +1,4 @@
-
 # Firewall - UofT CTF Writeup
-
 
 **Category:** [[Web]]   
 **Flag:** `uoftctf{f1rew4l1_Is_nOT_par7icu11rLy_R0bust_I_bl4m3_3bpf}`
@@ -180,3 +178,6 @@ While eBPF provides high-performance packet filtering at the kernel level, it ca
 - [socket](https://docs.python.org/3/library/socket.html)
 - [HTTP range headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Range_requests)
 - [Nagle's Algorithm and TCP_NODELAY](https://en.wikipedia.org/wiki/Nagle%27s_algorithm)
+
+
+[[UOFTCTF2026]]
