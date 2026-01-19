@@ -11,7 +11,7 @@ The challenge provides a binary file, `router_dump.bin`, supposedly extracted f
 
 We start by running `strings` to see if there is any low-hanging fruit or metadata that gives away the architecture or file structure.
 
-![[strings_IOT.png]]
+![strings_IOT.png](../Attachments/strings_IOT.png)
 
 Bingo! That line `rootfs=squashfs` is the most important piece of information here. It confirms that there is a compressed Linux filesystem hidden inside the `.bin` file.
 
@@ -21,7 +21,7 @@ Bingo! That line `rootfs=squashfs` is the most important piece of information 
 
 We'll use `binwalk`, a powerful tool for analyzing and extracting embedded files from binary images. The `-e` flag tells `binwalk` to automatically extract any filesystems it finds:
 
-![[firmware_IOT.png]]
+![firmware_IOT.png](../Attachments/firmware_IOT.png)
 
 ### What just happened?
 
@@ -40,7 +40,7 @@ Now I can navigate the extracted filesystem just like a normal Linux directory.
 
 A bit of exploring leads me to this interesting script:
 
-![[interesting_script_IOT.png]]
+![interesting_script_IOT.png](../Attachments/interesting_script_IOT.png)
 
 This script, `telemetryd`, is a shell script that constructs a string by pulling data from three different locations, decoding them from **Base64**, and stitching them together. This looks like my flag assembly mechanism.
 
@@ -50,19 +50,19 @@ Let's decode each part.
 
 ### Part 1: `/etc/device.id`
 
-![[part1_IOT.png]]
+![part1_IOT.png](../Attachments/part1_IOT.png)
 
 The first part of the flag is: `IDEH{c00l`
 
 ### Part 2: `/bin/print` output
 
-![[part2_IOT.png]]
+![part2_IOT.png](../Attachments/part2_IOT.png)
 
 The middle part of the flag is: `_f1rmw4re`
 
 ### Part 3: `/var/lib/telemetry/state.cache`
 
-![[part3_IOT.png]]
+![part3_IOT.png](../Attachments/part3_IOT.png)
 
 The tail of the flag is: `_an4lys1s}`
 
