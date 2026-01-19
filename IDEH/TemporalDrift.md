@@ -13,7 +13,7 @@ The "Temporal Alignment Research Facility" presents a web interface that checks 
 
 From the jump, we can see that we are given the value of the drift on the website:
 
-![website_TemporalDrift.png](Attachments/website_TemporalDrift.png)
+![website_TemporalDrift.png](../Attachments/website_TemporalDrift.png)
 
 A quick look into the client-side source code reveals how the application communicates with the backend:
 
@@ -67,7 +67,7 @@ By sending `0`, the server's response will literally tell us the exact secret t
 
 This could be done through the console or by directly accessing the URL `https://ideh-temporaldrift.chals.io/timecheck?client_time=0` and verifying the response.
 
-![solving_TemporalDrift.png](Attachments/solving_TemporalDrift.png)
+![solving_TemporalDrift.png](../Attachments/solving_TemporalDrift.png)
 
 The server returned a drift of **437,067,893**. This is our target timestamp.
 
@@ -75,7 +75,7 @@ The server returned a drift of **437,067,893**. This is our target timestamp.
 
 With the calculated target time, I immediately sent a final request using that static value to zero out the drift (`https://ideh-temporaldrift.chals.io/timecheck?client_time=437067893`) :
 
-![solved_TemporalDrift.png](Attachments/solved_TemporalDrift.png)
+![solved_TemporalDrift.png](../Attachments/solved_TemporalDrift.png)
 
 Since the drift is 0 (well within the 300-second allowance), I server returns the hidden message which contains the flag.
 
